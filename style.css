@@ -1,0 +1,22 @@
+/* Disconnect button */
+#disc{
+  position:fixed; top:2vmin; right:2vmin; z-index:9;
+  font-size:clamp(18px,2.6vmin,30px); letter-spacing:.12em;
+  color:#9f9; text-decoration:none; padding:.2em .7em;
+  border:1px solid rgba(153,255,153,.5); background:rgba(0,0,0,.45);
+  text-shadow:0 0 6px rgba(80,255,120,.6);
+}
+#disc:hover{ background:rgba(40,120,60,.45); color:#fff; }
+
+/* Legacy feed marker (top center of the feed) */
+.tc{
+  top:0; left:50%; transform:translateX(-50%);
+  font-size:calc(var(--fw) * .04); white-space:nowrap;
+  color:#ffd75a; text-shadow:0 0 6px rgba(255,200,60,.6), 1px 1px 0 #000;
+  animation:slowblink 3s steps(1) infinite;
+}
+@keyframes slowblink{ 0%,70%{opacity:1} 71%,100%{opacity:.35} }
+
+/* Fade-out used when disconnecting */
+#fade{ position:fixed; inset:0; background:#000; opacity:0; pointer-events:none; z-index:40; transition:opacity .5s; }
+#fade.on{ opacity:1; pointer-events:auto; }
