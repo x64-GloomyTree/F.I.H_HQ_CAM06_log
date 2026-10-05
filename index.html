@@ -137,13 +137,15 @@
 <body class="crt">
 
 <div id="start">[ click to connect ]</div>
-
+<a id="disc" href="https://x64-gloomytree.github.io/F.I.H_EmployeeRecord32/">[ DISCONNECT ]</a>
+<div id="fade"></div>
 <div id="feed">
   <img id="gif" src="cam06_log.gif" alt="">
   <div class="cam tl"><span class="rec"></span>REC</div>
   <div class="cam tr">CAM06</div>
   <div class="cam bl" id="clock">--/--/---- --:--:--</div>
   <div class="cam br" id="elapsed">00:00:00</div>
+  <div class="cam tc">LEGACY FEED</div>
   <div class="corner c1"></div><div class="corner c2"></div>
   <div class="corner c3"></div><div class="corner c4"></div>
 </div>
@@ -166,7 +168,12 @@
     }
   }
   if (gifEl.complete) setAR(); else gifEl.addEventListener('load', setAR);
-
+  document.getElementById('disc').addEventListener('click', e => {
+    e.preventDefault();
+    const url = e.currentTarget.href;
+    document.getElementById('fade').classList.add('on');
+    setTimeout(() => { location.href = url; }, 550);
+  });
   // Audio: quiet + muffled through a low-pass filter
   const bgm = document.getElementById('bgm');
   document.getElementById('start').addEventListener('click', e => {
